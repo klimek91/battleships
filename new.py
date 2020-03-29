@@ -17,11 +17,17 @@ def random_row(board):
 def random_col(board):
   return randint(0, len(board[0]) - 1)
 
-ship_row = random_row(board)
-ship_col = random_col(board)
-print(ship_row)
-print(ship_col)
+ship1_row = random_row(board)
+ship1_col = random_col(board)
+print ('Ship1 row and col: ',ship1_row,ship1_col)
 
+while True:
+  ship2_row = random_row(board)
+  ship2_col = random_row(board)
+  if ship2_row != ship1_row and ship2_col != ship1_col:
+    break
+  
+print("Ship2 row and col: ",ship2_row,ship2_col)
 
 for turn in range(4):
   print("Turn", turn + 1)
