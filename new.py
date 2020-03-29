@@ -28,15 +28,21 @@ while True:
     break
   
 print("Ship2 row and col: ",ship2_row,ship2_col)
-
+hit_count=0
 for turn in range(4):
   print("Turn", turn + 1)
   guess_row = int(input("Guess Row: "))
   guess_col = int(input("Guess Col: "))
-
+  
   if guess_row == ship1_row and guess_col == ship1_col or guess_row == ship2_row and guess_col == ship2_col:
+    hit_count+=1
     print("Congratulations! You sank my battleship!")
-    break
+    board[guess_row][guess_col] = "*"
+    if hit_count==2:
+      print_board(board)
+      print("Congratulations! You sank both battleships! You won!!!")
+      break
+    print_board(board)
   else:
     if guess_row not in range(5) or guess_col not in range(5):
       print("Oops, that's not even in the ocean.")
